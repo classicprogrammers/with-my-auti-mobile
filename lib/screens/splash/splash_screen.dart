@@ -8,7 +8,7 @@ import 'package:svg_flutter/svg.dart';
 import 'package:withmyauti/config/utils.dart';
 import 'package:withmyauti/constants/app_colors.dart';
 import 'package:withmyauti/constants/text_helper.dart';
-import 'package:withmyauti/splash/onBoardFirstScreen.dart';
+import 'package:withmyauti/screens/splash/onBoardFirstScreen.dart';
 import 'package:withmyauti/widgets/customBackground.dart';
 
 class SplashScreen extends StatefulWidget {

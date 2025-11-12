@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:withmyauti/config/utils.dart';
 import 'package:withmyauti/constants/app_colors.dart';
 import 'package:withmyauti/constants/text_helper.dart';
+import 'package:withmyauti/screens/languageSelection/languageSelectionScreen.dart';
 import 'package:withmyauti/widgets/common_button_widget.dart';
 import 'package:withmyauti/widgets/customBackground.dart';
 
@@ -80,7 +81,12 @@ class _OnBoardFirstScreenState extends State<OnBoardFirstScreen> {
                   ),
                 ),
                 Spacer(),
-                CommonButtonWidget(title: "GET STARTED"),
+                CommonButtonWidget(
+                  title: "GET STARTED",
+                  onTap: () {
+                    Get.to(() => LanguageSelectionScreen());
+                  },
+                ),
                 size20h,
                 Container(
                   height: 58.h,

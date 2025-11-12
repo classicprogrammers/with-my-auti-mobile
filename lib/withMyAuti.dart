@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:withmyauti/splash/splash_screen.dart';
+import 'package:withmyauti/screens/splash/splash_screen.dart';
 
 class WithMyAuti extends StatefulWidget {
   const WithMyAuti({Key? key}) : super(key: key);
