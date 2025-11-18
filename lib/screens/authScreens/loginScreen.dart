@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/utils.dart';
 import 'package:svg_flutter/svg.dart';
 import 'package:withmyauti/config/utils.dart';
 import 'package:withmyauti/constants/app_colors.dart';
 import 'package:withmyauti/constants/text_helper.dart';
+import 'package:withmyauti/screens/authScreens/forgetPasswordScreen.dart';
+import 'package:withmyauti/screens/authScreens/signUpScreen.dart';
+import 'package:withmyauti/screens/homeLayout.dart';
 import 'package:withmyauti/widgets/common_button_widget.dart';
 import 'package:withmyauti/widgets/customBackground.dart';
 
@@ -184,13 +189,21 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   size30h,
 
-                  CommonButtonWidget(title: "Sign in", onTap: () {}),
+                  CommonButtonWidget(
+                    title: "Sign in",
+                    onTap: () {
+                      Get.offAll(() => HomeLayout());
+                    },
+                  ),
                   size20h,
-                  customText(
-                    text: "Forgot the password?",
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.purple6949FF,
+                  InkWell(
+                    onTap: () => {Get.to(() => ForgetPasswordScreen())},
+                    child: customText(
+                      text: "Forgot the password?",
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.purple6949FF,
+                    ),
                   ),
                   size10h,
                   Row(
@@ -285,7 +298,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         color: AppColors.grey9E9E9E,
                       ),
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Get.to(() => SignUpScreen());
+                        },
                         child: customText(
                           text: "Sign up",
                           fontSize: 14.sp,

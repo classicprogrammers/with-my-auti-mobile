@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:svg_flutter/svg.dart';
 import 'package:withmyauti/config/utils.dart';
 import 'package:withmyauti/constants/app_colors.dart';
 import 'package:withmyauti/constants/text_helper.dart';
+import 'package:withmyauti/screens/authScreens/loginScreen.dart';
 import 'package:withmyauti/widgets/common_button_widget.dart';
 import 'package:withmyauti/widgets/customBackground.dart';
-import 'package:withmyauti/widgets/customSocialButton.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -19,7 +20,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   bool _rememberMe = false;
-
+  bool isExpanded = false;
+  List roles = ["Mom", "Specialist"];
+  String? selectedRole;
   @override
   Widget build(BuildContext context) {
     return CustomBackground(
@@ -33,7 +36,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Row(children: [BackButton()]),
-                  Image.asset('assets/images/logo.png', height: 160.h),
+                  Image.asset('assets/images/logo.png', height: 100.h),
 
                   SvgPicture.asset(
                     "assets/images/splashText.svg",
@@ -136,6 +139,91 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         borderSide: BorderSide(
                           color: AppColors.whiteFFFFFF, // Border color
                         ),
+                      ),
+                    ),
+                  ),
+                  size20h,
+                  InkWell(
+                    highlightColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    splashColor: Colors.transparent,
+                    onTap: () {
+                      setState(() {
+                        isExpanded = !isExpanded;
+                      });
+                    },
+                    child: Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 16.w,
+                        vertical: 15.h,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(
+                          isExpanded ? 16.sp : 16.sp,
+                        ),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  SvgPicture.asset(
+                                    "assets/images/role_icon.svg",
+                                    height: 30.h,
+                                    width: 30.w,
+                                    color: AppColors.grey9E9E9E,
+                                  ),
+                                  size10w,
+                                  customText(
+                                    text: selectedRole ?? "Select your role",
+                                    fontSize: 14.sp,
+
+                                    color:
+                                        selectedRole != null
+                                            ? AppColors.black212121
+                                            : AppColors.grey9E9E9E,
+                                  ),
+                                ],
+                              ),
+                              size10h,
+
+                              Icon(
+                                isExpanded
+                                    ? Icons.expand_less
+                                    : Icons.expand_more,
+                                color: AppColors.black000000,
+                              ),
+                            ],
+                          ),
+                          if (isExpanded)
+                            ...roles.map((role) {
+                              return InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    isExpanded = false;
+                                    selectedRole = role;
+                                  });
+                                },
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 8.h),
+                                  child: Row(
+                                    children: [
+                                      customText(
+                                        text: role ?? "",
+                                        fontSize: 14.sp,
+                                        color: AppColors.black000000,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              );
+                            }).toList(),
+                        ],
                       ),
                     ),
                   ),
@@ -280,7 +368,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          // Navigate to Sign In screen
+                          Get.offAll(() => LoginScreen());
                         },
                         child: customText(
                           text: "Sign in",

@@ -6,6 +6,7 @@ import 'package:withmyauti/constants/app_colors.dart';
 
 class AuthTextField extends StatefulWidget {
   final TextEditingController controller;
+  final InputBorder? inputBorder;
   final String hintText;
   final String? errorText;
   final String? Function(String?)? validator;
@@ -17,6 +18,7 @@ class AuthTextField extends StatefulWidget {
 
   const AuthTextField({
     Key? key,
+    this.inputBorder,
     required this.controller,
     required this.hintText,
     this.errorText,
@@ -34,9 +36,13 @@ class AuthTextField extends StatefulWidget {
 
 class _AuthTextFieldState extends State<AuthTextField> {
   bool _obscure = true;
+  static const InputBorder _defaultBlackBorder = UnderlineInputBorder(
+    borderSide: BorderSide(color: Colors.black, width: 1.0),
+  );
 
   @override
   Widget build(BuildContext context) {
+    final InputBorder resolvedBorder = widget.inputBorder ?? _defaultBlackBorder;
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30.r), // 👈 Added border radius
@@ -89,7 +95,8 @@ class _AuthTextFieldState extends State<AuthTextField> {
             top: 15,
             bottom: 15,
           ),
-
+enabledBorder: resolvedBorder,
+          focusedBorder: resolvedBorder,
           prefixIcon:
               widget.prefixSvgIcon != null
                   ? Padding(

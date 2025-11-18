@@ -12,5 +12,5 @@ void main() async {
     DeviceOrientation.portraitDown,
   ]);
 
-  runApp(const WithMyAuti());
+  runApp(WithMyAuti());
 }

@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:withmyauti/config/utils.dart';
 import 'package:withmyauti/constants/app_colors.dart';
 import 'package:withmyauti/constants/text_helper.dart';
+import 'package:withmyauti/screens/authScreens/loginScreen.dart';
 import 'package:withmyauti/screens/languageSelection/languageSelectionScreen.dart';
 import 'package:withmyauti/widgets/common_button_widget.dart';
 import 'package:withmyauti/widgets/customBackground.dart';
@@ -88,18 +89,23 @@ class _OnBoardFirstScreenState extends State<OnBoardFirstScreen> {
                   },
                 ),
                 size20h,
-                Container(
-                  height: 58.h,
-                  alignment: Alignment.center,
-                  width: Get.width,
-                  decoration: BoxDecoration(
-                    color: AppColors.whiteF0EDFF,
-                    borderRadius: BorderRadius.circular(100.r),
-                  ),
-                  child: customText(
-                    text: "I ALREADY HAVE AN ACCOUNT",
-                    color: AppColors.purple6949FF,
-                    fontWeight: FontWeight.bold,
+                InkWell(
+                  onTap: () {
+                    Get.to(() => LoginScreen());
+                  },
+                  child: Container(
+                    height: 58.h,
+                    alignment: Alignment.center,
+                    width: Get.width,
+                    decoration: BoxDecoration(
+                      color: AppColors.whiteF0EDFF,
+                      borderRadius: BorderRadius.circular(100.r),
+                    ),
+                    child: customText(
+                      text: "I ALREADY HAVE AN ACCOUNT",
+                      color: AppColors.purple6949FF,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 size40h,
