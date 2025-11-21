@@ -10,6 +10,7 @@ SizedBox size5h = SizedBox(height: 5.h);
 SizedBox size6h = SizedBox(height: 6.h);
 SizedBox size7h = SizedBox(height: 7.h);
 SizedBox size8h = SizedBox(height: 8.h);
+SizedBox size25h = SizedBox(height: 25.h,);
 SizedBox size20h = SizedBox(height: 20.h);
 
 SizedBox size24h = SizedBox(height: 24.h);
@@ -30,7 +31,7 @@ SizedBox size120h = SizedBox(height: 120.h);
 SizedBox size12h = SizedBox(height: 12.h);
 
 SizedBox size150h = SizedBox(height: 150.h);
-
+SizedBox size150w = SizedBox(width: 150.w);
 SizedBox size20w = SizedBox(width: 20.w);
 SizedBox size21w = SizedBox(width: 21.w);
 SizedBox size22w = SizedBox(width: 22.w);
@@ -44,7 +45,7 @@ SizedBox size3w = SizedBox(width: 3.w);
 SizedBox size2w = SizedBox(width: 2.w);
 
 SizedBox size25w = SizedBox(width: 25.w);
-
+SizedBox size7w = SizedBox(width: 7.w);
 SizedBox size30w = SizedBox(width: 30.w);
 
 SizedBox size40w = SizedBox(width: 40.w);

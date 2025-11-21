@@ -1,25 +1,40 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
+    static const greyCACACA
+=Color(0xffCACACA);
+  static const grey323232
+=Color(0xff323232);  static const grey9E9E9E = Color(0xff9E9E9E);
   static const greyC0C0C0 = Color(0xffC0C0C0);
+    static const grey373737 = Color(0xff373737);
+  static const grey6955F4 = Color(0xff6955F4);
+  static const greyB4B4B4 = Color(0xffB4B4B4);
   static const black0A0A0A = Color(0xff0A0A0A);
   static const greyCDCDCD = Color(0xffCDCDCD);
-  static const grey9E9E9E = Color(0xff9E9E9E);
   static const whiteEEEEEE = Color(0xffEEEEEE);
   static const whiteF0EDFF = Color(0xffF0EDFF);
   static const greyF9F9F9 = Color(0xffF9F9F9);
   static const black323536 = Color(0xff323536);
   static const black000000 = Color(0xff000000);
+    static const black517EB9 = Color(0xff517EB9);
   static const black212121 = Color(0xff212121);
+  static const black656565 = Color(0xff656565);
   static const grey616161 = Color(0xff616161);
   static const purpleB09FFF = Color(0xFFB09FFF);
   static const purple6949FF = Color(0xFF6949FF);
   static const pinkD056B6 = Color(0xffD056B6);
+    static const grey9F5FB3 = Color(0xff9F5FB3);
+        static const grey517EB9 = Color(0xff517EB9);
+
   static const greenB3EAC2 = Color(0xffB3EAC2);
   static const whiteFFFFFF = Color(0xffFFFFFF);
   static const whiteF6F5FA = Color(0xffF6F5FA);
   static const primaryColor = Color(0xff6020BD);
+  static const blue6020BD = Color(0xff6020BD);
+    static const black868686 = Color(0xff868686);
   static const blue38B6FF = Color(0xff38B6FF);
+    static const pinkE15ABE = Color(0xffE15ABE);
+   static const blue570B7F = Color(0xff570B7F);
   static const grey43474D = Color(0xff43474D);
   static const greyADB4C0 = Color(0xffADB4C0);
   static const greyEDEDED = Color(0xffEDEDED);
@@ -30,6 +45,7 @@ class AppColors {
   static const grey9DB2CE = Color(0xff9DB2CE);
   static const grey929398 = Color(0xff929398);
   static const greyF4F4F4 = Color(0xffF4F4F4);
+  static const yellowFFCC4D = Color(0xffFFCC4D);
   static const grey626262 = Color(0xff626262);
   static const redFF2B3A = Color(0xffFF2B3A);
 }

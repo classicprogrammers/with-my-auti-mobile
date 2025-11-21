@@ -9,6 +9,11 @@ import 'package:withmyauti/constants/app_colors.dart';
 import 'package:withmyauti/constants/app_styles.dart';
 import 'package:withmyauti/constants/text_helper.dart';
 import 'package:withmyauti/screens/consultationsScreen.dart';
+import 'package:withmyauti/screens/dailySuggestionsScreen.dart';
+import 'package:withmyauti/screens/momMoodReportsScreen.dart';
+import 'package:withmyauti/screens/myMoments/myMomentsScreen.dart';
+import 'package:withmyauti/screens/smartSuggestionsScreen.dart';
+import 'package:withmyauti/storiesScreen.dart';
 import 'package:withmyauti/widgets/customBackground.dart';
 import 'package:withmyauti/widgets/stepsContainer.dart';
 
@@ -21,7 +26,7 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   double currentValue = 0;
-  final List<String> moodEmojis = ["🥺", "😐", "🙂", "😀", "😃"];
+  final List<String> moodEmojis = ["🥺", "😐", "🙂", "😀", "😃", "😄"];
   int getEmojiIndex(double value) {
     return (value / 20).clamp(0, 4).toInt();
   }
@@ -111,55 +116,58 @@ class _MainScreenState extends State<MainScreen> {
                               clipBehavior: Clip.none,
                               alignment: Alignment.topCenter,
                               children: [
-                                Container(
-                                  height: 49.h,
-                                  width: 151.w,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white.withOpacity(0.27),
-                                    borderRadius: BorderRadius.circular(11.r),
-                                  ),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(top: 10),
-                                        child: customText(
-                                          text: 'Mom Mood',
-                                          color: Colors.white,
-                                          textAlign: TextAlign.center,
-                                          fontSize: 14.sp,
-                                          fontWeight: FontWeight.w700,
+                                InkWell(
+                                  onTap: () {
+                                    Get.to(()=> MommoodReportsScreen());
+                                  },
+                                  child: Container(
+                                    height: 49.h,
+                                    width: 151.w,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white.withOpacity(0.27),
+                                      borderRadius: BorderRadius.circular(11.r),
+                                    ),
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(top: 10),
+                                          child: customText(
+                                            text: 'Mom Mood',
+                                            color: Colors.white,
+                                            textAlign: TextAlign.center,
+                                            fontSize: 14.sp,
+                                            fontWeight: FontWeight.w700,
+                                          ),
                                         ),
-                                      ),
-                                      size5h,
-                                      SizedBox(
-                                        height: 4.h,
-                                        child: SliderTheme(
-                                          data: SliderTheme.of(
-                                            context,
-                                          ).copyWith(
-                                            trackHeight: 4,
-                                            thumbColor: Colors.white,
-                                            activeTrackColor: Colors.white,
-                                            inactiveTrackColor: Color(
-                                              0xffB4B4B4,
+                                        size5h,
+                                        SizedBox(
+                                          height: 4.h,
+                                          child: SliderTheme(
+                                            data: SliderTheme.of(
+                                              context,
+                                            ).copyWith(
+                                              trackHeight: 4,
+                                              thumbColor: Colors.white,
+                                              activeTrackColor: Colors.white,
+                                              inactiveTrackColor: AppColors.greyB4B4B4,
+                                              overlayColor: Colors.white
+                                                  .withOpacity(0.2),
                                             ),
-                                            overlayColor: Colors.white
-                                                .withOpacity(0.2),
-                                          ),
-                                          child: Slider(
-                                            value: currentValue,
-                                            min: 0,
-                                            max: 120,
-                                            onChanged: (value) {
-                                              setState(() {
-                                                currentValue = value;
-                                              });
-                                            },
+                                            child: Slider(
+                                              value: currentValue,
+                                              min: 0,
+                                              max: 120,
+                                              onChanged: (value) {
+                                                setState(() {
+                                                  currentValue = value;
+                                                });
+                                              },
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                 ),
 
@@ -180,20 +188,23 @@ class _MainScreenState extends State<MainScreen> {
                               ],
                             ),
                             size10w,
-                            Container(
-                              width: 151.w,
-                              height: 49.h,
-                              decoration: BoxDecoration(
-                                color: Color.fromRGBO(255, 255, 255, .27),
-                                borderRadius: BorderRadius.circular(11.r),
-                              ),
-                              child: Center(
-                                child: customText(
-                                  text: 'Daily Suggestion',
-                                  textAlign: TextAlign.center,
-                                  fontSize: 14.sp,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w700,
+                            InkWell(
+                              onTap: (){Get.to(()=> DailySuggestionsScreen());},
+                              child: Container(
+                                width: 151.w,
+                                height: 49.h,
+                                decoration: BoxDecoration(
+                                  color: Colors.white.withOpacity(0.27),
+                                  borderRadius: BorderRadius.circular(11.r),
+                                ),
+                                child: Center(
+                                  child: customText(
+                                    text: 'Daily Suggestion',
+                                    textAlign: TextAlign.center,
+                                    fontSize: 14.sp,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w700,
+                                  ),
                                 ),
                               ),
                             ),
@@ -395,22 +406,27 @@ class _MainScreenState extends State<MainScreen> {
                     children: [
                       ContainerList(
                         text: 'My Child Journey',
-                        color: const Color(0xFF6955F4),
+                        color: AppColors.grey6955F4,
                         image: Image.asset(
                           'assets/images/childJorney.png',
                           width: 30.w,
                           height: 32.h,
                         ),
                       ),
-                      ContainerList(
-                        text: 'Our\n Moments',
-                        gradient: LinearGradient(
-                          colors: [Color(0xff6949FF), Color(0xffE15ABE)],
-                        ),
-                        image: Image.asset(
-                          'assets/images/moments.png',
-                          width: 30.w,
-                          height: 32.h,
+                      InkWell(
+                        onTap: (){
+                          Get.to(()=> StoriesScreen());
+                        },
+                        child: ContainerList(
+                          text: 'Our\n Moments',
+                          gradient: LinearGradient(
+                            colors: [AppColors.purple6949FF, AppColors.pinkE15ABE],
+                          ),
+                          image: Image.asset(
+                            'assets/images/moments.png',
+                            width: 30.w,
+                            height: 32.h,
+                          ),
                         ),
                       ),
                       ContainerList(
@@ -423,15 +439,20 @@ class _MainScreenState extends State<MainScreen> {
                           height: 32.h,
                         ),
                       ),
-                      ContainerList(
-                        text: 'My\n Moments',
-                        gradient: LinearGradient(
-                          colors: [Color(0xFF6020BD), Color(0xff6949FF)],
-                        ),
-                        image: Image.asset(
-                          'assets/images/my_moments.png',
-                          width: 30.w,
-                          height: 32.h,
+                      InkWell(
+                        onTap: () {
+                          Get.to(() => MyMomentsScreen());
+                        },
+                        child: ContainerList(
+                          text: 'My\n Moments',
+                          gradient: LinearGradient(
+                            colors: [Color(0xFF6020BD), Color(0xff6949FF)],
+                          ),
+                          image: Image.asset(
+                            'assets/images/my_moments.png',
+                            width: 30.w,
+                            height: 32.h,
+                          ),
                         ),
                       ),
                     ],
